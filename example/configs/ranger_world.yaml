@@ -1,0 +1,32 @@
+
+world:
+  height: 9
+  width: 9  
+  obstacle_map: 'maps/office.png'
+  mdownsample: 2
+  step_time: 0.1  # 10Hz calculate each step
+  sample_time: 0.1  # 10 Hz for render and data extraction 
+  offset: [0, 0] # the offset of the world on x and y 
+  # control_mode: 'keyboard'
+  collision_mode: "reactive"
+  
+
+robot:
+  kinematics: {name: 'diff'}  # omni, diff, acker
+  shape: {name: 'rectangle', length: 0.738, width: 0.5, wheelbase: 0.494}  # radius
+  state: [0, 0, 1.57]  # x, y, theta
+  goal: [4, 4, -2.36]  # x, y, thetan
+  behavior: {name: 'rvo', vxmax: 1.5, vymax: 1.5, acceler: 1.0, factor: 1.0, mode: 'rvo', wander: True}
+  color: 'b' # green
+  vel_max: [1.4, 0.57] # linear[m/s] & angular [rad/s]
+  description: 'car_blue.png'
+  sensors: 
+  - type: 'lidar2d'
+    range_min: 0
+    range_max: 20
+    angle_range: 1.047 # [rad]
+    number: 100
+
+  plot:
+    show_trajectory: False
+    show_goal: True
