@@ -34,6 +34,7 @@ class World:
         control_mode: str = "auto",
         collision_mode: str = "stop",
         obstacle_map=None,
+        # obstacle_path_map=None,
         mdownsample: int = 1,
         **kwargs,
     ) -> None:
@@ -50,6 +51,7 @@ class World:
             control_mode (str): Control mode ('auto' or 'keyboard').
             collision_mode (str): Collision mode ('stop', 'reactive', 'unobstructed').
             obstacle_map: Image file for the obstacle map.
+            obstacle_path_map: Image file for obstacle path generation map.
             mdownsample (int): Downsampling factor for the obstacle map.
         """
 
