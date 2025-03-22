@@ -100,6 +100,13 @@ The `world` section contains the configuration of the simulation environment. Th
 
 ##### **`obstacle_map`**:  
   Specifies the file path to an image that serves as the obstacle map. This image is used to generate the grid map that defines the positions of obstacles within the world. Each pixel in the image corresponds to a grid cell in the map, where the color of the pixel determines the presence of an obstacle. 
+  
+  We provide some example maps in the `irsim/world/map` folder and you can also use your own map by 3D datasets like [HM3D](https://aihabitat.org/datasets/hm3d/), [MatterPort3D](https://niessner.github.io/Matterport/), [Gibson](http://gibsonenv.stanford.edu/database/), etc. See [here](https://github.com/hanruihua/ir-sim/tree/features/irsim/world/map/binary_map_generator_hm3d) for more details.
+
+  **e.g.**
+  ```yaml
+  obstacle_map: 'hm3d_2.png' # hm3d_1.png, hm3d_2.png, hm3d_3.png, hm3d_4.png, hm3d_5.png, hm3d_6.png, hm3d_7.png, hm3d_8.png, hm3d_9.png, cave.png
+  ```
 
 ##### **`mdownsample`**:  
   Sets the downsampling factor for the obstacle map image. A higher value reduces the resolution of the obstacle map, which can optimize the simulation performance by decreasing computational load. 
@@ -140,7 +147,7 @@ All `robot` and `obstacle` entities in the simulation are configured as objects 
 | `state`          | `list` of `float` | `[0, 0, 0]`      | Initial state vector of the object.                                                      |
 | `velocity`       | `list` of `float` | `[0, 0]`         | Initial velocity vector.                                                                 |
 | `goal`           | `list` of `float` or `list` of `list` of `float` | `[10, 10, 0]`    | Goal state(s) vector.                                                                       |
-| `behavior`       | `dict`            | `{name: dash}`   | Behavior configuration dictating object movement. Support name: `dash`, `rvo`            |
+| `behavior`       | `dict`            | `None`   | Behavior configuration dictating object movement. Support name: `dash`, `rvo`            |
 | `role`           | `str`             | `Obstacle`       | Role of the object in the simulation.                                                    |
 | `color`          | `str`             | `'k'` (black)    | Visualization color of the object in the simulation.                                     |
 | `static`         | `bool`            | `False`          | Indicates if the object is static.                                                       |
